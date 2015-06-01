@@ -3,3 +3,11 @@ def is_even(number):
         return True
     else:
         return False
+
+
+def fib_numbers():
+    a = 1
+    b = 1
+    while True:
+        yield b
+        a, b = b, a + b
