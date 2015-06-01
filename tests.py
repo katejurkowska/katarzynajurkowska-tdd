@@ -1,6 +1,6 @@
 import unittest
 
-from main import is_even, fib_numbers
+from main import is_even, fib_numbers, sum_limit
 
 
 class IsEvenTests(unittest.TestCase):
@@ -34,6 +34,21 @@ class FibNumbersTests(unittest.TestCase):
         numbers = [next(number_gen) for _ in range(10)]
         expected_numbers = [1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
         self.assertEqual(expected_numbers, numbers)
+
+
+class SumLimitTests(unittest.TestCase):
+
+    def test_empty_sequence(self):
+        self.assertEqual(0, sum_limit([], 40))
+
+    def test_when_limit_is_greater_then_sum_of_numbers(self):
+        self.assertEqual(15, sum_limit([1, 2, 3, 4, 5], 40))
+
+    def test_when_limit_is_less_then_sum_of_numbers(self):
+        self.assertEqual(10, sum_limit([1, 2, 3, 4, 5], 11))
+
+    def test_when_first_number_is_greater_then_limit(self):
+        self.assertEqual(0, sum_limit([100], 10))
 
 
 if __name__ == '__main__':
