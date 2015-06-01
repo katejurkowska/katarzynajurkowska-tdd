@@ -21,3 +21,11 @@ def sum_limit(numbers, limit):
         else:
             current_sum += number
     return current_sum
+
+
+def sum_even_fib_numbers(limit):
+    even_fib_numbers = filter(is_even, fib_numbers())
+    return sum_limit(even_fib_numbers, limit)
+
+if __name__ == "__main__":
+    print(sum_even_fib_numbers(4000000))
